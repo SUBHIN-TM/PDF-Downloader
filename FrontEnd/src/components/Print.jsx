@@ -20,13 +20,9 @@ const Print = ({ course, description }) => {
 
     return (
         <Container>
-            <Box sx={{ marginBottom: 4,display:"flex",alignItems:"center",justifyContent:"center" }}>
-                <Button variant="contained" onClick={handlePrint}>
-                    Print
-                </Button>
-            </Box>
+
             <Box ClassName="print-content"
-                
+
                 ref={componentRef}
                 sx={{
                     display: "flex",
@@ -43,6 +39,11 @@ const Print = ({ course, description }) => {
                     <Typography>Description: {description}</Typography>
                 </Box>
                 <Page2 />
+            </Box>
+            <Box sx={{ marginBottom: 4,display:"flex",alignItems:"center",justifyContent:"center" }}>
+                <Button variant="contained" onClick={handlePrint}>
+                    Print
+                </Button>
             </Box>
         </Container>
     );
