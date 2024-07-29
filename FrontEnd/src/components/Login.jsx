@@ -15,6 +15,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import CloseIcon from '@mui/icons-material/Close';
 
+//FORMIK
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
 //GENERAL IMPORTS
 import { useState } from 'react'
 import Print from './Print';
@@ -59,7 +63,26 @@ const Login = () => {
   }
 
 
+  const Schema=Yup.object({
+    courseSelection: Yup.string()
+      .required('Required'),
+      courseDescription: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Required'),
+  })
 
+  const InitialValues={
+    courseSelection:"",
+    courseDescription:"",
+  }
+
+  const formik=useFormik({
+    initialValues:InitialValues,
+    validationSchema:Schema,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    }
+  })
 
   return (
     <Container component="main" maxWidth="xs">
@@ -81,6 +104,7 @@ const Login = () => {
               value={selectedCourse}
               label="Course"
               onChange={(e) => setSelectedCourse(e.target.value)}
+              name='courseSelection'
             >
               {courses.map((course, index) => (
                 <MenuItem key={index} value={course}>
