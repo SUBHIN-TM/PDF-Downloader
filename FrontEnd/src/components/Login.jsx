@@ -1,4 +1,4 @@
-import { useState } from 'react'
+//*MATERAL UI  IMPORTS
 import {
   Button,
   TextField,
@@ -15,7 +15,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import CloseIcon from '@mui/icons-material/Close';
 
-
+//GENERAL IMPORTS
+import { useState } from 'react'
 import Print from './Print';
 
 
@@ -23,19 +24,18 @@ const Login = () => {
   const [courses] = useState(["course1", "course2", "course3"])
   const [selectedCourse, setSelectedCourse] = useState("")
   const [courseDesc, setCourseDesc] = useState("")
+  const [open, setOpen] =useState(false); //MODAL TRIGGER
 
-  const [open, setOpen] =useState(false);
-
-  const handleClickOpen = () => {
+  const handleClickOpen = () => { //MODAL OPEN FUNCTION
     setOpen(true);
   };
 
-  const handleClickClose = () => {
+  const handleClickClose = () => {//MODAL CLOSE FUNCTION
     setOpen(false);
   };
 
 
-  function SimpleDialog(props) {
+  function SimpleDialog(props) { //MODAL OPEN CONTENT COMPONENT
     const { open ,onClose} = props;
     return (
      <Dialog  open={open}  fullWidth={true} maxWidth="lg"  onClose={onClose}>
