@@ -9,11 +9,13 @@ import {
   Box,
   Typography,
   Container,
-  IconButton
+  IconButton,
+  useMediaQuery
 } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTheme } from '@mui/material/styles';
 
 //FORMIK
 import { useFormik } from 'formik';
@@ -29,6 +31,8 @@ const Login = () => {
   const [selectedCourse, setSelectedCourse] = useState("")
   const [courseDesc, setCourseDesc] = useState("")
   const [open, setOpen] = useState(false); //MODAL TRIGGER
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClickOpen = () => { //MODAL OPEN FUNCTION
     setOpen(true);
@@ -42,7 +46,12 @@ const Login = () => {
   function SimpleDialog(props) { //MODAL OPEN CONTENT COMPONENT
     const { open, onClose } = props;
     return (
-      <Dialog open={open} fullWidth={true} maxWidth="lg" onClose={onClose}>
+      <Dialog open={open} fullScreen={fullScreen} fullWidth={!fullScreen}  maxWidth={fullScreen ? 'xs' : 'lg'}  PaperProps={{
+        style: {
+          margin: 0,
+          width: '100%',
+        },
+      }} onClose={onClose}>
         <DialogTitle>Preview Page
           <IconButton
             aria-label="close"
@@ -129,7 +138,7 @@ const Login = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.courseDescription && Boolean(formik.errors.courseDescription)}
-            helperText={formik.touched.courseDescription && formik.errors.courseDescription}
+            helperText={formik.errors.courseDescription}
           />
           <Button type='submit' variant="outlined">Preview</Button>
         </Box>

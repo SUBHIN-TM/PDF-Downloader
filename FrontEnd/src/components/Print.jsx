@@ -29,7 +29,7 @@ const Print = ({ course, description }) => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    marginTop: 8,
+                    marginTop: 5,
                     gap: 2,
                 }}
             >
