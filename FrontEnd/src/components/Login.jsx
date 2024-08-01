@@ -138,7 +138,7 @@ const Login = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.courseDescription && Boolean(formik.errors.courseDescription)}
-            helperText={formik.errors.courseDescription}
+            helperText={formik.touched.courseDescription && formik.errors.courseDescription}
           />
           <Button type='submit' variant="outlined">Preview</Button>
         </Box>

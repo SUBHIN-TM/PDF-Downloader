@@ -1,5 +1,7 @@
-import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
+import image1 from "../assets/Artboard 1.jpg"
+
+
 
 const Page1 = () => {
   return (
@@ -7,7 +9,7 @@ const Page1 = () => {
       <Grid container spacing={2} direction="column" alignItems="center">
         <Grid item>
           <Typography variant="h6" component="span">
-            Header Page
+           
           </Typography>
         </Grid>
         <Grid item>
@@ -18,8 +20,8 @@ const Page1 = () => {
               maxWidth: 500,
               height: 'auto'
             }}
-            src="https://www.ias.edu/sites/default/files/institute-for-advanced-study-fuld-hall.jpg"
-            alt="Institute for Advanced Study"
+            src={image1}
+            alt="Artboard1"
           />
         </Grid>
       </Grid>

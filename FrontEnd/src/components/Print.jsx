@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import Page1 from "./Page1";
 import Page2 from "./Page2";
+import Chart from "./Chart";
 
 import {
     Button,
@@ -9,6 +10,8 @@ import {
     Typography,
     Container
 } from '@mui/material';
+
+
 
 
 const Print = ({ course, description }) => {
@@ -22,7 +25,7 @@ const Print = ({ course, description }) => {
     return (
         <Container>
 
-            <Box ClassName="print-content"
+            <Box className="print-content"
 
                 ref={componentRef}
                 sx={{
@@ -38,6 +41,9 @@ const Print = ({ course, description }) => {
                 <Box sx={{ display: "grid", gap: 1, textAlign: "center" }}>
                     <Typography>Selected Course is: {course}</Typography>
                     <Typography>Description: {description}</Typography>
+                </Box>
+                <Box>
+                   <Chart subjectArray={["english","Hindi","Malayalam","Arabic"]} markArray={[]} />
                 </Box>
                 <Page2 />
             </Box>

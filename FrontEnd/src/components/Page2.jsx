@@ -1,12 +1,12 @@
 import { Box, Typography, Grid } from '@mui/material';
-
+import image2 from "../assets/Artboard 3.jpg"
 const Page2 = () => {
   return (
     <Box sx={{ flexGrow: 1, padding: 2 }}>
       <Grid container spacing={2} direction='column' alignItems="center">
         <Grid item>
           <Typography>
-            Footer Page
+           
           </Typography>
         </Grid>
         <Grid item>
@@ -14,8 +14,8 @@ const Page2 = () => {
             width: '100%',
             maxWidth: 500,
             height: 'auto'
-          }} src="https://freefrontend.com/assets/img/tailwind-footers/thumb-mini.png"
-            alt="Footer image">
+          }} src={image2}
+            alt="Artboard2">
           </Box>
         </Grid>
       </Grid>
